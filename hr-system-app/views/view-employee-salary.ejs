@@ -1,0 +1,27 @@
+<%- include ('partials/header.ejs'); -%>
+    <div class="table-wrapper">
+        <% if (salaries.length > 0) {%>
+            <div><h1>History of salary of Employee No : <%= emp_no %></h1><h4>Go <a href="/" >here</a> to see list of employees again.</h4></div>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Salary</th>
+                        <th scope="col">From Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% salaries.forEach((salary, index) => { %>
+                        <tr>
+                            <th scope="row"><%= salary.salary %></th>
+                            <td><%= new Date(salary.from_date).toISOString().split('T')[0] %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No salary records found. Go <a href="/" >here</a> to see list of employees.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<%- include ('partials/header.ejs'); -%>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+    <% if (department) { %>
+        <form class="add-form" action="" method="post" >
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="dept-name">Department Name</label>
+                    <input type="text" class="form-control" name="dept_name" id="dept-name" value="<%= department.dept_name %>" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update Employee</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Department Not Found. Go <a href="/add">here</a> to add department.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

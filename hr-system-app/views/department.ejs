@@ -1,0 +1,32 @@
+<%- include ('partials/header.ejs'); -%>
+    <div class="table-wrapper">
+        <% if (departments.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Department No</th>
+                        <th scope="col">Department Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% departments.forEach((department, index) => { %>
+                        <tr>
+                            <th scope="row"><%= department.dept_no %></th>
+                            <td><%= department.dept_name %></td>
+                            <td>    
+                                <a href="/editDept/<%= department.dept_no %>" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/deleteDept/<%= department.dept_no %>" class="btn btn-sm btn-danger">Delete</a>
+                                <a href="/viewDeptEmployees/<%= department.dept_no %>" class="btn btn-sm btn-success">View Deptartment Employees</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No department found. Go <a href="/addDept" >here</a> to add department.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>

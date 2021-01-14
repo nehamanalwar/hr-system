@@ -1,0 +1,88 @@
+<%- include ('partials/header.ejs'); -%>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+    <% if (employee) { %>
+        <form class="add-form" action="" method="post" >
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">First Name</label>
+                    <input type="text" class="form-control" name="first_name" id="first-name" value="<%= employee.first_name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="middle-name">Middle Name</label>
+                    <input type="text" class="form-control" name="middle_name" id="middle-name" value="<%= employee.middle_name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" id="last-name" value="<%= employee.last_name %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">DOB</label>
+                    <input type="text" class="form-control" name="birth_date" id="birth-date" value="<%= new Date(employee.birth_date).toISOString().split('T')[0] %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="first-name">Gender</label>
+                    <input type="text" class="form-control" name="gender" id="gender" value="<%= employee.gender %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="first-name">SSN</label>
+                    <input type="text" class="form-control" name="ssn" id="ssn" value="<%= employee.ssn %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">Hire Date</label>
+                    <input type="text" class="form-control" name="hire_date" id="hire-date" value="<%= new Date(employee.hire_date).toISOString().split('T')[0] %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">Address Line 1</label>
+                    <input type="text" class="form-control" name="address1" id="address1" value="<%= employee.address1 %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="first-name">Address Line 2</label>
+                    <input type="text" class="form-control" name="address2" id="address2" value="<%= employee.address2 %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">City</label>
+                    <input type="text" class="form-control" name="city" id="city" value="<%= employee.city %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="first-name">State</label>
+                    <input type="text" class="form-control" name="state" id="state" value="<%= employee.state %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="first-name">Zip Code</label>
+                    <input type="text" class="form-control" name="zipcode" id="zipcode" value="<%= employee.zipcode %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">Home Phone</label>
+                    <input type="text" class="form-control" name="home_phone" id="home-phone" value="<%= employee.home_phone %>" >
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="first-name">Mobile Phone</label>
+                    <input type="text" class="form-control" name="mobile_phone" id="mobile-phone" value="<%= employee.mobile_phone %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="first-name">Email</label>
+                    <input type="text" class="form-control" name="email" id="email" value="<%= employee.email %>" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update Employee</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Employee Not Found. Go <a href="/add">here</a> to add employees.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<%- include ('partials/header.ejs'); -%>
+    <div class="table-wrapper">
+        <% if (titles.length > 0) {%>
+            <div><h1>History of Titles of Employee No : <%= emp_no %></h1><h4>Go <a href="/" >here</a> to see list of employees again.</h4></div>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">From Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% titles.forEach((title, index) => { %>
+                        <tr>
+                            <th scope="row"><%= title.title %></th>
+                            <td><%= new Date(title.from_date).toISOString().split('T')[0] %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No title records found. Go <a href="/" >here</a> to see list of employees.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
